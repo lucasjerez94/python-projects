@@ -142,7 +142,4 @@ for perro in refugio:
 
 def chequear_hambre()
 
-while True:
-    try:
-        respuesta = input('¿El perro tiene hambre?(Si=s/NO=n): ').strip().lower()
-        if respuesta == 's':
+#Continuar desde aqui en pc de Gizu
