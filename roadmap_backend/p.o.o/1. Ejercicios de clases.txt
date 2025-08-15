@@ -1,0 +1,249 @@
+
+-------------------------------------- ARCHIVO: clase-vehiculos.py ---------------------------------------
+
+link de tareas: https://docs.google.com/document/d/1BvVAfilzz5eDSUNEZHICSHMtLP_l5Z16ddKnx5y5kO4/edit?tab=t.0
+
+----------------------- EJERCICIO 1 -------------------------
+
+#Crear instancia de moto
+moto1 = Moto('Zanella','F90')
+
+#Ponela en marcha
+moto1.arrancar()
+
+#Hacela acelerar
+moto1.acelerar()
+
+#Intenta que haga una pirueta
+moto1.hacer_pirueta()
+
+#Instanciamos una nueva moto para probar 
+moto2 = Moto('Yamaha','HZ100')
+
+#Pongo en marcha SOLAMENTE
+moto2.arrancar()
+
+#Intento hacer pirueta sin acelerar
+moto2.hacer_pirueta()
+
+----------------------- EJERCICIO 2 -------------------------
+
+#Crear objeto Auto
+auto1 = Auto('Peugeot','Style 504')
+
+#Simular movimiento/ Si esto no se realiza, vemos otra salida, probar.
+auto1.arrancar()
+
+#Frenar el auto
+auto1.evitar_colision()
+
+----------------------- EJERCICIO 3 -------------------------
+#Crea una moto y un auto
+moto1 = Moto('Zanella','F95')
+auto1 = Auto('Peugeot','405')
+
+#Pone en marcha y acelera solo uno de los dos
+moto1.arrancar()
+moto1.acelerar()
+
+#Mostra el estado de ambos vehiculos
+moto1.estado()
+auto1.estado()
+
+#Llama a los metodos especiales
+moto1.hacer_pirueta()
+auto1.evitar_colision()
+
+-------------------------------------- ARCHIVO: clases.py ---------------------------------------
+
+link de tareas: https://docs.google.com/document/d/1_dgGpRsjPxo3KxQKIwJq2JmJoICfBd6aCIVnEaiQg6c/edit?tab=t.0
+
+----------------------- EJERCICIO 1 -------------------------
+print('\nBienvenido al Refugio de Mascotas de Gerli.')
+print('Puede elegir adoptar entre un gato o un perro.')
+
+# Validar tipo de animal
+while True:
+    selected_animal = input('Ingrese "perro" o "gato" para elegir su mascota: ').lower().strip()
+
+    if selected_animal == 'perro':
+        tipo = 'p'
+        break
+    elif selected_animal == 'gato':
+        tipo = 'g'
+        break
+    else:
+        print("❌ Opción inválida. Por favor, escriba exactamente 'perro' o 'gato'.")
+
+# Solicitar nombre y color del animal elegido
+nombre = input("Ingrese el nombre que desea para su mascota: ").strip().capitalize()
+color = input("Ingrese el color predominante de su mascota: ").strip().capitalize()
+
+# Crear instancia según elección
+if tipo == 'p':
+    mascota = Perro(nombre, 'Bulldog Francés', color)
+    print(f'\n🎉 ¡Felicitaciones! Adoptaste al perro {mascota.nombre}.')
+    mascota.mostrar_raza()
+    mascota.mostrar_color()
+    mascota.ladrar()
+elif tipo == 'g':
+    mascota = Gato(nombre, 'Pequeño', color)
+    print(f'\n🎉 ¡Felicitaciones! Adoptaste al gato {mascota.nombre}.')
+    mascota.pedirComida()
+
+# Ofrecer cambiar el nombre
+while True:
+    cambiar_nombre = input(f'\n¿Deseás cambiar el nombre de tu mascota {mascota.nombre}? (S = Sí / N = No): ').lower().strip()
+    if cambiar_nombre == 's':
+        nuevo_nombre = input("Nuevo nombre: ").strip().capitalize()
+        mascota.nombre = nuevo_nombre
+        print(f'✅ El nombre fue cambiado a: {mascota.nombre}')
+        break
+    elif cambiar_nombre == 'n':
+        print('👍 El nombre no fue modificado.')
+        break
+    else:
+        print("❌ Opción inválida. Ingresá 'S' o 'N'.")
+
+----------------------- EJERCICIO 2 -------------------------
+#1. Crea una instancia de Gato y otra de Perro con valores predeterminados
+cat = Gato('Zimba','pequeño','Gris',edad = 5)
+dog = Perro('Facha','Dogo Argentino','Blanco', edad = 3)
+
+#2. Simula un paso del tiempo en bucle (for o while) donde en cada ciclo el gato cumple años y pide comida y el perro ladra
+for year in range(1,4):
+    cat.cumpleaños()
+    cat.pedirComida()
+    dog.cumpleaños()
+    dog.ladrar()
+
+#3. Luego de 3 años: mostra la edad final de ambos animales y permiti cambiar el nombre de uno de los 2 usando imput
+cat.mostrar_edad()
+dog.mostrar_edad()
+
+while True:
+    respuesta = input('¿Desea cambiar el nombre de alguno de los animales? (gato / perro / no): ').strip().lower()
+    
+    if respuesta == 'gato':
+        nuevo_nombre = input('Ingrese el nuevo nombre para el gato: ').strip().capitalize()
+        cat.cambiar_nombre(nuevo_nombre)
+        break
+    
+    elif respuesta == 'perro':
+        nuevo_nombre = input('Ingrese el nuevo nombre para el perro: ').strip().capitalize()
+        dog.cambiar_nombre(nuevo_nombre)
+        break
+    
+    elif respuesta == 'no':
+        print('No se modifica el nombre de ningún animal.')
+        break
+
+    else:
+        print('❌ Opción inválida. Por favor, escriba "gato", "perro" o "no".')
+
+-------------------------------------- ARCHIVO: encapsulamiento.py ---------------------------------------
+
+curso1 = Curso('Backend developer', 500, 'Analista de Sistemas')
+curso1.mostrarDatos()
+
+print(curso1.get_imparticion())  # Acceso controlado
+curso1.set_imparticion('Virtual')  # Modifica de forma segura
+curso1.mostrarDatos()
+
+print(curso1.__imparticion)  # Esto da error (AttributeError)
+
+curso1.set_imparticion('Semi-presencial')  # ❌ No debería permitirlo
+curso1.set_imparticion('Virtual')          # ✅ Cambio exitoso
+curso1.mostrarDatos()                      # Confirmá el nuevo valor
+
+-------------------------------------- ARCHIVO: encapsulamiento2.py ---------------------------------------
+ARCHIVO: encapsulamiento2.py
+link de tarea: https://docs.google.com/document/d/1qrzZv10bP_cDmoSArjk0gt50bu-kz8lidF1ZLJoIk3k/edit?tab=t.0
+
+Consejo para el ingreso de datos por consola, para achicar el margen de errores:
+nuevo_color = nuevo_color.strip().lower().capitalize() (para garantizar que incluso si escriben mArrÓn se normalice a Marrón.)
+
+dog = Perro('Facha', 'Dogo Argentino', 'Blanco')
+
+name_dog = dog.get_nombre()
+
+dog.set_color('azul')
+dog.set_color('55')
+
+new_color = 'Negro'
+color_anterior = dog.get_color()
+cambio_exitoso = dog.set_color(new_color)
+
+if cambio_exitoso:
+    print(f'El color anterior de {name_dog} era el color {color_anterior}. Pero ahora, su color actual es {dog.get_color()}')
+
+
+-------------------------------------- ARCHIVO: herencia.py ---------------------------------------
+link de tarea: https://docs.google.com/document/d/1Vu2raYOF0GvrOpbIkaBZIady3FKCbGoMKnqD8tBeKoQ/edit?tab=t.0
+
+Ejercicio propuesto: "Refugio de Animales"
+
+---------- PARTE 1 ----------
+
+print('PARTE 1 - "Creando perros"')
+print('"----- Refugio de animales -----"')
+print('A continuación, ingrese los datos de los perros.\n')
+
+refugio = []
+
+def crear_perro(numero: int) -> Perro:
+    while True:
+        try:
+            print(f'\nPerro #{numero}')
+            nombre = input('Ingrese el nombre: ').strip().capitalize()
+            tamaño = input('Ingrese el tamaño: ').strip().capitalize()
+            raza = input('Ingrese la raza: ').strip().capitalize()
+
+            perro = Perro(nombre, tamaño, raza)  # Validación automática en la clase
+            return perro
+
+        except ValueError as e:
+            print(f'❌ Error: {e}. Intente nuevamente.\n')
+
+# Crear 2 perros
+for i in range(1, 3):
+    refugio.append(crear_perro(i))
+
+print('\n✅ Perros creados exitosamente!')
+for perro in refugio:
+    print(perro)
+
+---------- PARTE 2 ---------- 
+
+print('\nPARTE 2 - "Configurar atributos"\n')
+
+for perro in refugio:
+    print(f"Configurando datos para {perro.nombre}")
+
+    while True:
+        try:
+            edad = int(input('Ingrese edad: '))
+            if perro.set_edad(edad):
+                break
+        except ValueError:
+            print('❌ Debes ingresar un número entero válido.')
+
+    while True:
+        pelaje = input('Ingrese tipo de pelaje: ')
+        if perro.set_pelaje(pelaje):
+            break
+
+    while True:
+        color = input('Ingrese color: ')
+        if perro.set_color(color):
+            break
+
+print('\n✅ DATOS FINALES DE LOS PERROS:')
+for perro in refugio:
+    print(perro)
+
+---------- PARTE 3 ---------- 
+
+
+
+
