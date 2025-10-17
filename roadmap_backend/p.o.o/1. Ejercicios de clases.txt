@@ -243,6 +243,40 @@ for perro in refugio:
     print(perro)
 
 ---------- PARTE 3 ---------- 
+print('\nPARTE 3 - "Acciones con métodos"\n')
+
+print('\n✅ DATOS FINALES DE LOS PERROS:')
+for perro in refugio:
+    print(perro)
+
+# Preguntar hambre de cada perro
+for perro in refugio:
+    while True:
+        respuesta = input(f'¿{perro.nombre} tiene hambre? (s/n): ').strip().lower()
+        if respuesta in ['s', 'n']:
+            hambre = (respuesta == 's')
+            perro.check_hambre(hambre)
+            break
+        else:
+            print('❌ Respuesta inválida. Por favor, ingresa "s" o "n".')
+
+# Acciones especiales
+if len(refugio) >= 1:
+    refugio[0].ladrar()
+
+if len(refugio) >= 2:
+    refugio[1].jugar()
+
+---------- PARTE 4 ---------- 
+print('\nPARTE 4 - "BONUS"\n')
+print("\n📋 LISTADO FINAL DEL REFUGIO:\n")
+for perro in refugio:
+    print(perro)
+
+
+-------------------------------------- ARCHIVO: inyeccion_de_dependencias ---------------------------------------
+link de tarea: https://docs.google.com/document/d/1Crqa8hk5xhOfv9Z5gm_uyW7qNRvirXbnXX5FbLPKsFA/edit?tab=t.0
+
 
 
 
