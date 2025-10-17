@@ -21,7 +21,7 @@ class Animal:
 
     def set_pelaje(self, pelaje: str) -> bool:
         if isinstance(pelaje, str) and pelaje.strip():
-            self.__pelaje = pelaje.strip().capitalize()
+            self.__pelaje = pelaje.capitalize()
             return True
         else:
             print("❌ Pelaje inválido. Debe ser una cadena no vacía.")
@@ -46,7 +46,7 @@ class Perro(Animal):
 
     # Setter de color con validaciones
     def set_color(self, nuevo_color: str) -> bool:
-        colores_validos = ['Blanco', 'Negro', 'Marrón', 'Gris', 'Dorado']
+        colores_validos = ['Blanco', 'Negro', 'Marron', 'Gris', 'Dorado']
         nuevo_color = nuevo_color.strip().capitalize()
 
         if not nuevo_color.isalpha():
@@ -135,11 +135,33 @@ for perro in refugio:
         if perro.set_color(color):
             break
     
-print('\nPARTE 3 - "Acciones con metodos"\n')
+print('\nPARTE 3 - "Acciones con métodos"\n')
+
 print('\n✅ DATOS FINALES DE LOS PERROS:')
 for perro in refugio:
     print(perro)
 
-def chequear_hambre()
+# Preguntar hambre de cada perro
+for perro in refugio:
+    while True:
+        respuesta = input(f'¿{perro.nombre} tiene hambre? (s/n): ').strip().lower()
+        if respuesta in ['s', 'n']:
+            hambre = (respuesta == 's')
+            perro.check_hambre(hambre)
+            break
+        else:
+            print('❌ Respuesta inválida. Por favor, ingresa "s" o "n".')
 
-#Continuar desde aqui en pc de Gizu
+# Acciones especiales
+if len(refugio) >= 1:
+    refugio[0].ladrar()
+
+if len(refugio) >= 2:
+    refugio[1].jugar()
+
+
+print('\nPARTE 4 - "BONUS"\n')
+print("\n📋 LISTADO FINAL DEL REFUGIO:\n")
+for perro in refugio:
+    print(perro)
+
