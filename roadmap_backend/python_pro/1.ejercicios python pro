@@ -1,0 +1,22 @@
+-------------------------------------- ARCHIVO: comprehension.py ---------------------------------------
+
+link de tareas: https://docs.google.com/document/d/1-eRQVPP6D6jxrb7ag18zFViAPTy_ixhh-4FG8AKIAgw/edit?tab=t.0
+
+----------------------- EJERCICIO 1 -------------------------
+
+def cuadrado(number : int) -> int:
+    return number ** 2
+
+lista1 = [cuadrado(number) for number in range(1,21) if number % 2 == 0]
+
+print(f'Lista 1, cuadrados de los pares del 1 al 20: {lista1}')
+
+----------------------- EJERCICIO 2 -------------------------
+
+number_thing = (number for number in range(1,16) if number % 3 == 0)
+print('\nNúmeros del generador múltiplos de 3, del 1 al 15:')
+for number in number_thing:
+    print(number)
+
+
+
