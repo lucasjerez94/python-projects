@@ -1,6 +1,4 @@
-"""
-OPCION NORMAL
-
+# OPCION NORMAL
 def square_numbers(nums):
     result = []
     for i in nums:
@@ -9,29 +7,14 @@ def square_numbers(nums):
 
 my_nums = square_numbers([1,2,3,4,5])
 
-print(my_nums)
-"""
-#imprime la lista: [1,4,9,16,25] 
-"""
+print(f'Imprimiendo "my_nums": {my_nums}')
+
 #GENERADOR 
 def square_numbers(nums):
     for i in nums:
         yield (i*i)
 
-my_nums = square_numbers([1,2,3,4,5])
+my_nums2 = square_numbers([1,2,3,4,5])
 
-for num in my_nums:
+for num in my_nums2:
     print(num)
-"""    
-"""
-imprime:
-1
-4
-9
-16
-25
-"""
-
-
-
-
