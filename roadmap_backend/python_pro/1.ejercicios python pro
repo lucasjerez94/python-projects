@@ -18,5 +18,10 @@ print('\nNúmeros del generador múltiplos de 3, del 1 al 15:')
 for number in number_thing:
     print(number)
 
+-------------------------------------- ARCHIVO: generadores.py ---------------------------------------
+
+----------------------- EJERCICIO  -------------------------
+
+- Crea un generador que produzca los números impares del 1 al 10, y recórralo con un for.
 
 
