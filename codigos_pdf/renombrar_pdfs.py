@@ -4,11 +4,7 @@ import pdfplumber
 import re
 from datetime import datetime
 
-# ==============================
-# DECORADOR PARA LOGS
-# ==============================
 def log_proceso(func):
-    """Decorador que muestra cuándo inicia y finaliza una función."""
     def wrapper(*args, **kwargs):
         print(f"\n--> Iniciando: {func.__name__}() a las {datetime.now().strftime('%H:%M:%S')}")
         resultado = func(*args, **kwargs)
