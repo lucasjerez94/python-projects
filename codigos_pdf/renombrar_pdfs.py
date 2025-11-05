@@ -61,9 +61,9 @@ class PDFRenamer:
             nombre = self.extraer_nombre(texto)
 
             if nombre:
-                nuevo_nombre = f"{nombre.strip()} 3 er.pdf"
+                nuevo_nombre = f"{nombre.strip()} 2 do.pdf"
             else:
-                nuevo_nombre = f"{os.path.splitext(archivo)[0]} 3 er.pdf"
+                nuevo_nombre = f"{os.path.splitext(archivo)[0]} 2 do.pdf"
 
             nuevo_nombre = self.limpiar_nombre(nuevo_nombre)
             nueva_ruta = os.path.join(self.carpeta_destino, nuevo_nombre)
@@ -77,8 +77,8 @@ class PDFRenamer:
 # ==============================
 if __name__ == "__main__":
     # RUTAS - modificá según tus carpetas
-    carpeta_origen = r"/Users/Giise/OneDrive/Imágenes/Escritorio/3"
-    carpeta_destino = r"/Users/Giise/OneDrive/Imágenes/Escritorio/3"
+    carpeta_origen = r"C:/Users/ljerez/Desktop/pruebapdf/originales"
+    carpeta_destino = r"C:/Users/ljerez/Desktop/pruebapdf/modificados"
 
     lector_pdf = PDFReader()
     renamer = PDFRenamer(carpeta_origen, carpeta_destino, lector_pdf)
