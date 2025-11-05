@@ -4,8 +4,8 @@ import pdfplumber
 import re
 
 # Carpeta donde se encuentran los archivos PDF originales
-carpeta_origen = '/Users/Giise/OneDrive/Imágenes/Escritorio/3'
-carpeta_destino = '/Users/Giise/OneDrive/Imágenes/Escritorio/3'
+carpeta_origen = 'C:/Users/ljerez/Desktop/pruebapdf/originales' 
+carpeta_destino = 'C:/Users/ljerez/Desktop/pruebapdf/modificados'
 
 # Obtener una lista de todos los archivos PDF en la carpeta origen
 archivos_pdf = [archivo for archivo in os.listdir(carpeta_origen) if archivo.endswith('.pdf')]
@@ -28,9 +28,9 @@ for archivo_pdf in archivos_pdf:
             break
     
     if nombre_completo:
-        nuevo_nombre = f"{nombre_completo.strip()} 3 er  .pdf"# Agrega "3 er" al nombre
+        nuevo_nombre = f"{nombre_completo.strip()} 2 do  .pdf"# Agrega "3 er" al nombre
     else:
-        nuevo_nombre = f"{archivo_pdf} 3 er"  # Agrega "3 er" al nombre original si no se encuentra "DNI"
+        nuevo_nombre = f"{archivo_pdf} 2 do"  # Agrega "3 er" al nombre original si no se encuentra "DNI"
     
     # Elimina caracteres no permitidos en el nombre del archivo
     nuevo_nombre = ''.join(c for c in nuevo_nombre if c.isalnum() or c in ' -_.()[]')
