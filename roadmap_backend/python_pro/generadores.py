@@ -18,3 +18,4 @@ my_nums2 = square_numbers_generador([1,2,3,4,5])
 
 for num in my_nums2:
     print(num)
+
