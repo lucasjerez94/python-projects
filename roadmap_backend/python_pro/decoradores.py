@@ -20,6 +20,8 @@ saludo_mejorado = decorador(saludar)
 saludo_mejorado()
 
 
+print("DIVISION ENTRE EJEMPLO SIMPLE Y FORMA PYTHONICA")
+
 #Forma "Pythonica" usando @
 @decorador
 def despedir():
