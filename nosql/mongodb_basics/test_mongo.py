@@ -20,13 +20,6 @@ resultado = usuarios.insert_one({
 print("Documento insertado con ID:", resultado.inserted_id)
 
 """
-from pymongo import MongoClient
-
-client = MongoClient("mongodb://localhost:27017")
-
-db = client["prueba_mongo"]
-usuarios = db["usuarios"]
-
 print("Usuarios en la colección:\n")
 
 for usuario in usuarios.find():
