@@ -22,6 +22,43 @@ def create_orders_table():
     cursor.close()
     connection.close()
 
+# ----------------------PRUEBA: Crear tabla------------------------
+# Create test
+def create_test_table():
+    connection = get_connection()
+    cursor = connection.cursor()
+
+    query = """
+    CREATE TABLE IF NOT EXISTS clientes (
+        cliente_id INT AUTO_INCREMENT PRIMARY KEY,
+        nombre VARCHAR(50) NOT NULL,
+        email VARCHAR(100) UNIQUE,
+        fecha_alta DATE
+    )
+    """
+    cursor.execute(query)
+    connection.commit()
+
+    cursor.close()
+    connection.close()
+# -----------------------------------------------------------------
+# ----------------------PRUEBA: Insertar datos---------------------
+def insert_test(order):
+    connection = get_connection()
+    cursor = connection.cursor()
+
+    query = """
+    INSERT INTO clientes (nombre, email, fecha_alta)
+    VALUES (%s, %s, %s)
+    """
+    cursor.execute(query, order)
+    connection.commit()
+
+    cursor.close()
+    connection.close()
+
+# -----------------------------------------------------------------
+
 # INSERT
 def insert_order(order):
     connection = get_connection()
